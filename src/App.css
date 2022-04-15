@@ -1,0 +1,49 @@
+.b-appear:not(.b-appear-active) {
+  width: 0 !important;
+}
+
+.b-appear-active {
+  transition: width 0.6s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.title-appear,
+.title-enter {
+  opacity: 0;
+  transform: translateX(-25px);
+}
+
+.title-appear-active,
+.title-enter-active {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.6s, transform 0.6s;
+}
+
+.subtitle-appear,
+.subtitle-enter {
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.subtitle-appear-active,
+.subtitle-enter-active {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.6s, transform 0.6s;
+  transition-delay: 250ms;
+}
+
+.dashboard-appear,
+.dashboard-enter {
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.dashboard-appear-active,
+.dashboard-enter-active {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.6s, transform 0.6s;
+  transition-delay: 500ms;
+}
