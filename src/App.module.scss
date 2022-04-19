@@ -14,16 +14,15 @@
   padding: 50px;
   max-width: 1400px;
   margin: auto 0;
-  perspective: 1200px;
-  position: relative;
-  transform: translateY(-150px);
+  transform: translateY(-100px);
   
   h1, h2 {
     font-weight: 300;
   }
   
-  h1 {
+  .title {
     font-size: 48px;
+    margin-top: 0;
     
     img {
       height: 1em;
@@ -55,32 +54,6 @@ button {
   svg {
     width: 24px;
     height: 24px;
-  }
-}
-
-aside {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-left: auto;
-  transform: translateY(-50%) scale(0.7) rotateX(13deg) rotateY(-18deg) rotateZ(4deg);
-  // transform: translateY(-50%) scale(0.75) rotate3d(0.5, -0.866, 0, 15deg) rotateZ(1deg);
-
-  h1 {
-    font-weight: 700;
-    font-size: 2rem;
-    margin: 20px 0;
-    height: 1em;
-    border-radius: 6px;
-    background: rgba(0, 0, 0, 0.15);
-  }
-  
-  .row {
-    display: flex;
-    gap: 25px;
   }
 }
 
