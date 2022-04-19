@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { CSSTransition } from "react-transition-group";
 import styles from "./Campaign.module.scss";
 
-const Campaign = ({ logo, active = false, transitionDelay = 0, ...props }) => {
+const Campaign = ({ logo, active = false, transitionDelay = 0 }) => {
   const status = active ? "pending" : "open";
   return (
     <CSSTransition
@@ -15,23 +15,25 @@ const Campaign = ({ logo, active = false, transitionDelay = 0, ...props }) => {
       }}
       style={{ transitionDelay: `${transitionDelay}ms` }}
     >
-      <div className={styles.campaign} {...props}>
-        <header className={styles.header}>
-          <img src={logo} alt="logo" />
-          <div className={styles.name}>
-            <Bar className={styles.top} transitionDelay={transitionDelay} />
-            <Bar className={styles.bottom} transitionDelay={transitionDelay + 150} />
-          </div>
-          <button className={styles[status]}>{status.toUpperCase()}</button>
-        </header>
-        <div className={styles.banner}></div>
-        {active ? (
-          <div className={styles.description}>
-            <Bar className={styles.top} transitionDelay={transitionDelay + 300} />
-            <Bar className={styles.middle} transitionDelay={transitionDelay + 450} />
-            <Bar className={styles.bottom} transitionDelay={transitionDelay + 600} />
-          </div>
-        ) : null}
+      <div>
+        <div className={styles.campaign}>
+          <header className={styles.header}>
+            <img src={logo} alt="logo" />
+            <div className={styles.name}>
+              <Bar className={styles.top} transitionDelay={transitionDelay} />
+              <Bar className={styles.bottom} transitionDelay={transitionDelay + 150} />
+            </div>
+            <button className={styles[status]}>{status.toUpperCase()}</button>
+          </header>
+          <div className={styles.banner}></div>
+          {active ? (
+            <div className={styles.description}>
+              <Bar className={styles.top} transitionDelay={transitionDelay + 300} />
+              <Bar className={styles.middle} transitionDelay={transitionDelay + 450} />
+              <Bar className={styles.bottom} transitionDelay={transitionDelay + 600} />
+            </div>
+          ) : null}
+        </div>
       </div>
     </CSSTransition>
   );
