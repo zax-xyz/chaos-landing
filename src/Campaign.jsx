@@ -44,21 +44,21 @@ const Campaign = ({ logo, active = false, transitionDelay = 0 }) => {
       style={{ transitionDelay: `${transitionDelay}ms` }}
     >
       <div>
-        <div tw="min-w-[400px] bg-white rounded-lg shadow-md transition hover:(-translate-y-1 shadow-lg)">
+        <div tw="w-[400px] bg-white rounded-lg shadow-md transition hover:(-translate-y-1 shadow-lg)">
           <header tw="flex items-center gap-2 p-4">
             <img tw="w-10 rounded" src={logo} alt="logo" />
             <Bars tw="gap-1">
-              <Bar tw="w-[149px]" transitionDelay={transitionDelay} />
-              <Bar tw="w-[140px]" transitionDelay={transitionDelay + 150} />
+              <Bar tw="w-40" transitionDelay={transitionDelay} />
+              <Bar tw="w-36" transitionDelay={transitionDelay + 150} />
             </Bars>
             <Button status={status}>{status.toUpperCase()}</Button>
           </header>
           <div tw="h-[157px] bg-[#edeeef]"></div>
           {active && (
             <Bars tw="gap-1.5 p-4">
-              <Bar tw="w-[222px]" transitionDelay={transitionDelay + 300} />
-              <Bar tw="w-[185px]" transitionDelay={transitionDelay + 450} />
-              <Bar tw="w-[160px]" transitionDelay={transitionDelay + 600} />
+              <Bar tw="w-56" transitionDelay={transitionDelay + 300} />
+              <Bar tw="w-44" transitionDelay={transitionDelay + 450} />
+              <Bar tw="w-40" transitionDelay={transitionDelay + 600} />
             </Bars>
           )}
         </div>

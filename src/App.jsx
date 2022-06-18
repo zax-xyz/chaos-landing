@@ -58,7 +58,7 @@ const App = () => {
   };
   return (
     <div
-      tw="flex flex-col items-center font-light min-h-screen font-sans"
+      tw="flex flex-col items-center font-light min-h-screen font-sans bg-gray-50"
       onPointerMove={onPointerMove}
     >
       <header tw="flex w-full p-[50px] max-w-7xl my-auto translate-y-[-100px]">
