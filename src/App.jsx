@@ -1,60 +1,90 @@
 import { CSSTransition } from "react-transition-group";
-import { useRef } from "react";
+import { useState } from "react";
+import tw, { styled } from "twin.macro";
 
 import "./App.css";
-import styles from "./App.module.scss";
 
 import Campaigns from "./Campaigns";
 
 import chaosImg from "./chaos.png";
 
+const ButtonShadow = tw.div`
+  filter blur-sm
+  group-hover:(blur translate-y-0.5) group-focus-visible:blur group-active:blur-none
+`;
+
+const ButtonBg = tw.div`
+  opacity-50 group-hover:opacity-100 group-focus-visible:opacity-100
+`;
+
+const Button = styled.button({
+  ...tw`
+    relative flex justify-center items-center
+    px-3 py-2
+    text-[#191d24] border-0 rounded outline-none ring-blue-500 transition
+    hover:text-black focus-visible:(ring text-black)
+  `,
+
+  [`& > ${ButtonBg}, ${ButtonShadow}`]: tw`
+    absolute inset-0 z-[-1] rounded transition bg-gradient-120 from-fuchsia-200 to-indigo-200
+  `,
+});
+
+const DashboardButton = ({ children, ...props }) => (
+  <Button className="group" {...props}>
+    <ButtonShadow />
+    <ButtonBg />
+    <svg
+      tw="h-6 w-6"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+    </svg>
+    {children}
+  </Button>
+);
+
 const App = () => {
-  const campaignsRef = useRef(null);
+  const [offsetX, setOffsetX] = useState(0);
+  const [offsetY, setOffsetY] = useState(0);
   const onPointerMove = e => {
     const div = e.currentTarget;
-    const offsetX = (e.clientX - (div.offsetLeft + div.clientWidth / 2)) / 100;
-    const offsetY = (e.clientY - (div.offsetTop + div.clientHeight / 2)) / 100;
-    campaignsRef.current.style.setProperty(
-      "transform",
-      `scale(0.7) rotateX(${6 - offsetY}deg) rotateY(${-7.5 + offsetX}deg) rotateZ(1deg)`,
-    );
+    setOffsetX((e.clientX - (div.offsetLeft + div.clientWidth / 2)) / 100);
+    setOffsetY((e.clientY - (div.offsetTop + div.clientHeight / 2)) / 100);
   };
   return (
-    <div className={styles.app} onPointerMove={onPointerMove}>
-      <header className={styles.header}>
+    <div
+      tw="flex flex-col items-center font-light min-h-screen font-sans"
+      onPointerMove={onPointerMove}
+    >
+      <header tw="flex w-full p-[50px] max-w-7xl my-auto translate-y-[-100px]">
         <main>
           <CSSTransition appear={true} in={true} timeout={250} classNames="title">
-            <h1 className={styles.title}>
-              <img src={chaosImg} alt="Chaos Logo" /> Chaos
+            <h1 tw="text-5xl">
+              <img tw="inline h-[1em] filter drop-shadow-md" src={chaosImg} alt="Chaos Logo" />{" "}
+              Chaos
             </h1>
           </CSSTransition>
           <CSSTransition appear={true} in={true} timeout={250} classNames="subtitle">
-            <h2>Recruitment Drives, without the fuss.</h2>
+            <h2 tw="text-3xl my-4">Recruitment Drives, without the fuss.</h2>
           </CSSTransition>
           <CSSTransition appear={true} in={true} timeout={250} classNames="dashboard">
-            <button>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-              Your Dashboard
-            </button>
+            <DashboardButton>Your Dashboard</DashboardButton>
           </CSSTransition>
         </main>
-        <Campaigns ref={campaignsRef} />
+        <Campaigns offsetX={offsetX} offsetY={offsetY} />
       </header>
       <svg
+        tw="absolute bottom-0 h-auto pointer-events-none"
         width="100%"
         height="100%"
         id="svg"
         viewBox="0 0 1440 400"
         xmlns="http://www.w3.org/2000/svg"
-        className={styles.waves}
       >
         <defs>
           <linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%">

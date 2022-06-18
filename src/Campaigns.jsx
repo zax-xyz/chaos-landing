@@ -1,5 +1,4 @@
 import { CSSTransition } from "react-transition-group";
-import { forwardRef } from "react";
 
 import styles from "./Campaigns.module.scss";
 
@@ -8,10 +7,16 @@ import Campaign from "./Campaign";
 import csesoc from "./CSESoc_logo.jpeg";
 import compclub from "./compclub.png";
 
-const Campaigns = forwardRef((_, ref) => {
+const Campaigns = ({ offsetX, offsetY }) => {
   return (
     <div className={styles.container}>
-      <aside ref={ref}>
+      <aside
+        style={{
+          transform: `scale(0.7) rotateX(${6 - offsetY}deg) rotateY(${
+            -7.5 + offsetX
+          }deg) rotateZ(1deg)`,
+        }}
+      >
         <section>
           <CSSTransition appear={true} in={true} timeout={250} classNames="b">
             <h1 style={{ width: 275 }}></h1>
@@ -33,6 +38,6 @@ const Campaigns = forwardRef((_, ref) => {
       </aside>
     </div>
   );
-});
+};
 
 export default Campaigns;
