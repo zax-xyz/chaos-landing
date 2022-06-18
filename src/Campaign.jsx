@@ -55,11 +55,11 @@ const Campaign = ({ logo, active = false, transitionDelay = 0 }) => {
           </header>
           <div tw="h-[157px] bg-[#edeeef]"></div>
           {active && (
-            <div tw="flex flex-col gap-1.5 p-4 [> *]:(h-[14px] rounded-[3px])">
+            <Bars tw="gap-1.5 p-4">
               <Bar tw="w-[222px]" transitionDelay={transitionDelay + 300} />
               <Bar tw="w-[185px]" transitionDelay={transitionDelay + 450} />
               <Bar tw="w-[160px]" transitionDelay={transitionDelay + 600} />
-            </div>
+            </Bars>
           )}
         </div>
       </div>
