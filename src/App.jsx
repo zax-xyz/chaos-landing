@@ -78,6 +78,7 @@ const App = () => {
         </main>
         <Campaigns offsetX={offsetX} offsetY={offsetY} />
       </header>
+
       <svg
         tw="absolute bottom-0 h-auto pointer-events-none"
         width="100%"
