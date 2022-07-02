@@ -19,14 +19,14 @@ const Heading = tw.h1`font-bold text-3xl my-5 h-[1em] rounded-md bg-black/[0.15]
 const Row = tw.div`flex gap-6`;
 
 const Campaigns = ({ offsetX, offsetY }) => {
+  const rotateX = 6 - offsetY;
+  const rotateY = -7.5 + offsetX;
   return (
     <Container>
       <aside
         tw="flex flex-col gap-4 mt-[-50px]"
         style={{
-          transform: `scale(0.7) rotateX(${6 - offsetY}deg) rotateY(${
-            -7.5 + offsetX
-          }deg) rotateZ(1deg)`,
+          transform: `scale(0.7) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(1deg)`,
         }}
       >
         <section>

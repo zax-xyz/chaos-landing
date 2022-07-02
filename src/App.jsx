@@ -26,7 +26,9 @@ const Button = styled.button({
   `,
 
   [`& > ${ButtonBg}, ${ButtonShadow}`]: tw`
-    absolute inset-0 z-[-1] rounded transition bg-gradient-120 from-fuchsia-200 to-indigo-200
+    absolute inset-0 z-[-1]
+    rounded transition
+    bg-gradient-120 from-fuchsia-200 to-indigo-200
   `,
 });
 
