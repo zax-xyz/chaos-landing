@@ -30,7 +30,7 @@ const Campaigns = ({ offsetX, offsetY }) => {
         }}
       >
         <section>
-          <CSSTransition appear={true} in={true} timeout={250} classNames="b">
+          <CSSTransition appear={true} in={true} classNames="b">
             <Heading tw="w-[275px]" />
           </CSSTransition>
           <Row>
@@ -39,7 +39,7 @@ const Campaigns = ({ offsetX, offsetY }) => {
           </Row>
         </section>
         <section>
-          <CSSTransition appear={true} in={true} timeout={250} classNames="b">
+          <CSSTransition appear={true} in={true} classNames="b">
             <Heading tw="w-[325px] delay-[400ms]!" />
           </CSSTransition>
           <Row>

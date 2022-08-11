@@ -36,7 +36,6 @@ const Campaign = ({ logo, active = false, transitionDelay = 0 }) => {
     <CSSTransition
       appear={true}
       in={true}
-      timeout={250 + transitionDelay}
       classNames={{
         appear: styles["fade-appear"],
         appearActive: styles["fade-appear-active"],

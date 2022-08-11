@@ -65,16 +65,16 @@ const App = () => {
     >
       <header tw="flex w-full p-[50px] max-w-7xl my-auto translate-y-[-100px]">
         <main>
-          <CSSTransition appear={true} in={true} timeout={250} classNames="title">
+          <CSSTransition appear={true} in={true} classNames="title">
             <h1 tw="text-5xl">
               <img tw="inline h-[1em] filter drop-shadow-md" src={chaosImg} alt="Chaos Logo" />{" "}
               Chaos
             </h1>
           </CSSTransition>
-          <CSSTransition appear={true} in={true} timeout={250} classNames="subtitle">
+          <CSSTransition appear={true} in={true} classNames="subtitle">
             <h2 tw="text-3xl my-4">Recruitment Drives, without the fuss.</h2>
           </CSSTransition>
-          <CSSTransition appear={true} in={true} timeout={250} classNames="dashboard">
+          <CSSTransition appear={true} in={true} classNames="dashboard">
             <DashboardButton>Your Dashboard</DashboardButton>
           </CSSTransition>
         </main>

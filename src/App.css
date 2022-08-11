@@ -45,6 +45,6 @@
   opacity: 1;
   transform: none;
   transition-property: opacity, transform;
-  transition-duration: 0.6s;
+  transition-duration: 0.6s !important;
   transition-delay: 500ms;
 }
