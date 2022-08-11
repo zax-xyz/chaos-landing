@@ -44,6 +44,7 @@
 .dashboard-enter-active {
   opacity: 1;
   transform: none;
-  transition: opacity 0.6s, transform 0.6s;
+  transition-property: opacity, transform;
+  transition-duration: 0.6s;
   transition-delay: 500ms;
 }
